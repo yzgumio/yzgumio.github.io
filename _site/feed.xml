@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>斷爛朝報</title>
+    <description></description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Tue, 02 Oct 2018 21:00:08 +0800</pubDate>
+    <lastBuildDate>Tue, 02 Oct 2018 21:00:08 +0800</lastBuildDate>
+    <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Hello World</title>
+        <description>&lt;h2 id=&quot;随便起个标题啥的根本不会&quot;&gt;随便起个标题啥的根本不会&lt;/h2&gt;
+
+&lt;p&gt;好像也没啥好谈的，去年搭VPS惨遭盗流量之后放弃抢救，把东西转移到git上来，原因就是很单纯的穷。&lt;/p&gt;
+
+&lt;p&gt;然后发现自己已经没有主站长达一年时间，而且一个码畜参加工作这么久不写前端实在是说不过去了，虽然还是想着后端满赛。&lt;/p&gt;
+
+&lt;p&gt;虽然以后大概率还是写后端但还是要看前端，哎实在是惨。&lt;/p&gt;
+
+&lt;p&gt;日后想想办法慢慢添加别的乱七八糟的东西吧。&lt;/p&gt;
+
+&lt;p&gt;然后就这么水了第一篇。&lt;/p&gt;
+
+&lt;p&gt;哦对，多说是真的蠢，所以屏蔽了等啥时候心情好了再放出来吧。&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 02 Oct 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/10/02/hello-world/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/10/02/hello-world/</guid>
+        
+        <category>日常</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
