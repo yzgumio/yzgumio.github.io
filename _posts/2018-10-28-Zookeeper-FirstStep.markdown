@@ -38,3 +38,5 @@ zkcli启动不需要参数，直接运行后退出：
 ![img](/img/zookeeper/7.jpg)
 ![img](/img/zookeeper/8.jpg)
 Ls和get是最常用的两个命令，显然，客户端的核心对象是ZooKeeper
+
+明天过来再改改吧
