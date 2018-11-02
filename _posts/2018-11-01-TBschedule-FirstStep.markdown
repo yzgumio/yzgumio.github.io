@@ -3,7 +3,7 @@ layout:     post
 title:      "Zookeeper与TBSchedule"
 date:       2018-11-01
 author:     "yzgu"
-header-img: "img/post-bg-20181002.png"
+header-img: "img/post-bg-20181002.jpg"
 tags:
     - TBSchedule
     - Zookeeper
@@ -15,18 +15,18 @@ tags:
 1 tomcat运行起来后无法启动调度平台，加载zk配置文件频繁报错
 
 调整启动调度管理配置，如果只是做系统管理，应该设置为false，如果需要执行调度任务，应该置为true
-![img](/img/zookeeper/9.png)
+![img](/img/zookeeper/9.jpg)
  
 
 在ConsoleManager.initial方法中调整
-![img](/img/zookeeper/10.png)
+![img](/img/zookeeper/10.jpg)
 
  
 
 改为手动loadConfig获得默认设置
 
 2 zk报错，跳转到配置页面
-![img](/img/zookeeper/11.png)
+![img](/img/zookeeper/11.jpg)
 
  
 
@@ -34,12 +34,12 @@ tags:
 http://localhost:8080/TBSchedule/schedule/index.jsp?manager=true
 
 3 若zk配置正确，直接进入http://localhost:8080/TBSchedule/schedule/index.jsp页面
-![img](/img/zookeeper/12.png)
+![img](/img/zookeeper/12.jpg)
 
 无法进行配置操作，此时zk没有数据，也无法执行管理和调度作业，根据2中的情况，可以直接进入管理主页地址：http://localhost:8080/TBSchedule/schedule/index.jsp?manager=true
 
 4 在页面进行配置调度，先进行调度策略配置，再进行任务管理配置，机器管理能找到自己当前所在主机即可，处理线程组列表等不用加以考虑。
-![img](/img/zookeeper/13.png)
+![img](/img/zookeeper/13.jpg)
 
 配置调度：
  
@@ -68,11 +68,11 @@ IP地址：不配置，保持默认参数
 自定义参数：保持默认
 任务项：按照提示配置0
  
-![img](/img/zookeeper/14.png)
+![img](/img/zookeeper/14.jpg)
 
 5 配置完调度策略和任务管理配置后，查看ZK数据结构
  
-![img](/img/zookeeper/15.png)
+![img](/img/zookeeper/15.jpg)
 
 了解任务调度配置，数据结构如下：
 /taobao/spectator/
@@ -88,25 +88,25 @@ IP地址：不配置，保持默认参数
 							执行taskTest任务的主机节点
 6 配置完后，任务执行仍不成功，报空指针异常
  
-![img](/img/zookeeper/16.png)
+![img](/img/zookeeper/16.jpg)
 
-![img](/img/zookeeper/17.png)
+![img](/img/zookeeper/17.jpg)
  
 发现是applicationcontext为空，spring容器加载时没有加载到Spring上下文环境
  
-![img](/img/zookeeper/18.png)
+![img](/img/zookeeper/18.jpg)
 
 调整web.xml文件，新增spring容器配置文件application-context.xml文件，这里命名为schedule.xml文件
 
 Web.xml中增加配置加载Spring容器的Listener，并指定spring上下文环境使用的配置文件
 
  
-![img](/img/zookeeper/19.png)
+![img](/img/zookeeper/19.jpg)
 
 在新增的schedule.xml文件中添加配置
 
  
-![img](/img/zookeeper/20.png)
+![img](/img/zookeeper/20.jpg)
 
 7 添加相应配置后，applicationcontext仍报空指针，spring容器需要将对应的FactoryBean先注册到容器中，并在它调用的bean之前定义，同时将applicationcontext设置为静态变量
 
@@ -114,10 +114,10 @@ Web.xml中增加配置加载Spring容器的Listener，并指定spring上下文�
 
 将页面任务配置中的
  
-![img](/img/zookeeper/21.png)
+![img](/img/zookeeper/21.jpg)
  
 调整为
  
-![img](/img/zookeeper/22.png)
+![img](/img/zookeeper/22.jpg)
 
 和schedule.xml配置文件中的测试Bean-id保持一致
